@@ -2,7 +2,7 @@
 title: Registrar nuevo estudio de mercado
 description: Llene este formulario para registrar un nuevo estudio de mercado a la plataforma. Recuerde que este estudio será revisado por el comité de calidad de Market Knowledge Center
 published: true
-date: 2024-09-29T22:44:04.242Z
+date: 2024-09-29T23:20:04.729Z
 tags: 
 editor: code
 dateCreated: 2024-09-27T22:05:29.464Z
@@ -19,19 +19,19 @@ dateCreated: 2024-09-27T22:05:29.464Z
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
 </head>
 <body>
-    <h1>Registrar Estudio de Mercado</h1>
-    <form action="/post-study" method="post" enctype="multipart/form-data">
+    <h1 class="form-title">Registrar Estudio de Mercado</h1>
+    <form class="market-study-form" action="/post-study" method="post" enctype="multipart/form-data">
         <!-- Campo de Título -->
-        <label for="title">Título:</label>
-        <input type="text" id="title" name="title" required><br><br>
+        <label for="title" class="form-label">Título:</label>
+        <input type="text" id="title" name="title" class="form-input" required><br><br>
 
         <!-- Campo de Sinopsis -->
-        <label for="summary">Sinopsis:</label>
-        <textarea id="summary" name="summary" rows="5" cols="33" required></textarea><br><br>
+        <label for="summary" class="form-label">Sinopsis:</label>
+        <textarea id="summary" name="summary" rows="5" cols="33" class="form-textarea" required></textarea><br><br>
 
         <!-- Campo de Categoría con creación de nuevas etiquetas -->
-        <label for="category">Categoría:</label>
-        <select id="category" name="category[]" multiple required>
+        <label for="category" class="form-label">Categoría:</label>
+        <select id="category" name="category[]" multiple required class="form-select">
             <option value="economy">Economía</option>
             <option value="technology">Tecnología</option>
             <option value="marketing">Marketing</option>
@@ -39,24 +39,24 @@ dateCreated: 2024-09-27T22:05:29.464Z
         </select><br><br>
 
         <!-- Campo de Autor con creación de nuevas etiquetas -->
-        <label for="author">Autor:</label>
-        <select id="author" name="author[]" multiple required>
+        <label for="author" class="form-label">Autor:</label>
+        <select id="author" name="author[]" multiple required class="form-select">
             <option value="author1">Autor 1</option>
             <option value="author2">Autor 2</option>
             <option value="author3">Autor 3</option>
         </select><br><br>
 
         <!-- Campo de Mes y Año de Publicación -->
-        <label for="month">Mes y año de Publicación:</label>
-        <select id="month" name="month" required>
+        <label for="month" class="form-label">Mes y año de Publicación:</label>
+        <select id="month" name="month" required class="form-select">
             <option value="jan">Enero - 2021</option>
             <option value="feb">Febrero - 2018</option>
             <option value="mar">Marzo - 2019</option>
         </select><br><br>
 
         <!-- Campo de País con creación de nuevas etiquetas -->
-        <label for="country">País:</label>
-        <select id="country" name="country[]" multiple required>
+        <label for="country" class="form-label">País:</label>
+        <select id="country" name="country[]" multiple required class="form-select">
             <option value="argentina">Argentina</option>
             <option value="chile">Chile</option>
             <option value="mexico">México</option>
@@ -64,15 +64,57 @@ dateCreated: 2024-09-27T22:05:29.464Z
         </select><br><br>
 
         <!-- Adjuntar documento -->
-        <label for="document">Adjuntar Documento:</label>
-        <input type="file" id="document" name="document"><br><br>
+        <label for="document" class="form-label">Adjuntar Documento:</label>
+        <input type="file" id="document" name="document" class="form-file-input"><br><br>
 
         <!-- Campo de URL -->
-        <label for="url">URL:</label>
-        <input type="url" id="url" name="url"><br><br>
+        <label for="url" class="form-label">URL:</label>
+        <input type="url" id="url" name="url" class="form-input"><br><br>
 
         <!-- Botón para registrar -->
-        <button type="submit">Registrar</button>
+        <button type="submit" class="form-submit-btn">Registrar</button>
     </form>
+
+    <script>
+        // Inicializar Choices.js para crear selects con autocompletado y la posibilidad de agregar nuevas etiquetas
+        const categoryInput = new Choices('#category', {
+            removeItemButton: true,
+            duplicateItemsAllowed: false,
+            allowHTML: false,
+            addItems: true,
+            paste: false,
+            searchEnabled: true,
+            placeholderValue: 'Seleccionar o añadir categorías',
+            noResultsText: 'No se encontraron coincidencias',
+            noChoicesText: 'No hay más opciones disponibles',
+            addItemText: (value) => `Presiona Enter para añadir: "${value}"`
+        });
+
+        const authorInput = new Choices('#author', {
+            removeItemButton: true,
+            duplicateItemsAllowed: false,
+            allowHTML: false,
+            addItems: true,
+            paste: false,
+            searchEnabled: true,
+            placeholderValue: 'Seleccionar o añadir autores',
+            noResultsText: 'No se encontraron coincidencias',
+            noChoicesText: 'No hay más opciones disponibles',
+            addItemText: (value) => `Presiona Enter para añadir: "${value}"`
+        });
+
+        const countryInput = new Choices('#country', {
+            removeItemButton: true,
+            duplicateItemsAllowed: false,
+            allowHTML: false,
+            addItems: true,
+            paste: false,
+            searchEnabled: true,
+            placeholderValue: 'Seleccionar o añadir países',
+            noResultsText: 'No se encontraron coincidencias',
+            noChoicesText: 'No hay más opciones disponibles',
+            addItemText: (value) => `Presiona Enter para añadir: "${value}"`
+        });
+    </script>
 </body>
 </html>
