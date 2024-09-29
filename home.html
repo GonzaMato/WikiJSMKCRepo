@@ -2,7 +2,7 @@
 title: Registrar nuevo estudio de mercado
 description: Llene este formulario para registrar un nuevo estudio de mercado a la plataforma. Recuerde que este estudio será revisado por el comité de calidad de Market Knowledge Center
 published: true
-date: 2024-09-29T23:24:59.466Z
+date: 2024-09-29T23:25:42.975Z
 tags: 
 editor: code
 dateCreated: 2024-09-27T22:05:29.464Z
@@ -14,8 +14,9 @@ dateCreated: 2024-09-27T22:05:29.464Z
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrar Estudio de Mercado</title>
+    <!-- Enlace al archivo CSS -->
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <!-- Enlace al CSS de Choices.js -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
 </head>
 <body>
@@ -27,7 +28,7 @@ dateCreated: 2024-09-27T22:05:29.464Z
 
         <!-- Campo de Sinopsis -->
         <label for="summary" class="form-label">Sinopsis:</label>
-        <textarea id="summary" name="summary" rows="5" cols="33" class="form-textarea" required></textarea><br><br>
+        <textarea id="summary" name="summary" rows="5" class="form-textarea" required></textarea><br><br>
 
         <!-- Campo de Categoría con creación de nuevas etiquetas -->
         <label for="category" class="form-label">Categoría:</label>
@@ -75,45 +76,46 @@ dateCreated: 2024-09-27T22:05:29.464Z
         <button type="submit" class="form-submit-btn">Registrar</button>
     </form>
 
+    <!-- Enlace al JavaScript de Choices.js -->
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
     <script>
-        // Inicializar Choices.js para crear selects con autocompletado y la posibilidad de agregar nuevas etiquetas
-        const categoryInput = new Choices('#category', {
-            removeItemButton: true,
-            duplicateItemsAllowed: false,
-            allowHTML: false,
-            addItems: true,
-            paste: false,
-            searchEnabled: true,
-            placeholderValue: 'Seleccionar o añadir categorías',
-            noResultsText: 'No se encontraron coincidencias',
-            noChoicesText: 'No hay más opciones disponibles',
-            addItemText: (value) => `Presiona Enter para añadir: "${value}"`
-        });
+        // Inicializar Choices.js para los campos con creación de nuevas etiquetas
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryInput = new Choices('#category', {
+                removeItemButton: true,
+                addItems: true,
+                duplicateItemsAllowed: false,
+                editItems: true,
+                placeholder: true,
+                placeholderValue: 'Seleccionar o añadir categorías',
+                noResultsText: 'No se encontraron coincidencias',
+                noChoicesText: 'No hay opciones disponibles',
+                addItemText: (value) => `Presiona Enter para añadir: "${value}"`
+            });
 
-        const authorInput = new Choices('#author', {
-            removeItemButton: true,
-            duplicateItemsAllowed: false,
-            allowHTML: false,
-            addItems: true,
-            paste: false,
-            searchEnabled: true,
-            placeholderValue: 'Seleccionar o añadir autores',
-            noResultsText: 'No se encontraron coincidencias',
-            noChoicesText: 'No hay más opciones disponibles',
-            addItemText: (value) => `Presiona Enter para añadir: "${value}"`
-        });
+            const authorInput = new Choices('#author', {
+                removeItemButton: true,
+                addItems: true,
+                duplicateItemsAllowed: false,
+                editItems: true,
+                placeholder: true,
+                placeholderValue: 'Seleccionar o añadir autores',
+                noResultsText: 'No se encontraron coincidencias',
+                noChoicesText: 'No hay opciones disponibles',
+                addItemText: (value) => `Presiona Enter para añadir: "${value}"`
+            });
 
-        const countryInput = new Choices('#country', {
-            removeItemButton: true,
-            duplicateItemsAllowed: false,
-            allowHTML: false,
-            addItems: true,
-            paste: false,
-            searchEnabled: true,
-            placeholderValue: 'Seleccionar o añadir países',
-            noResultsText: 'No se encontraron coincidencias',
-            noChoicesText: 'No hay más opciones disponibles',
-            addItemText: (value) => `Presiona Enter para añadir: "${value}"`
+            const countryInput = new Choices('#country', {
+                removeItemButton: true,
+                addItems: true,
+                duplicateItemsAllowed: false,
+                editItems: true,
+                placeholder: true,
+                placeholderValue: 'Seleccionar o añadir países',
+                noResultsText: 'No se encontraron coincidencias',
+                noChoicesText: 'No hay opciones disponibles',
+                addItemText: (value) => `Presiona Enter para añadir: "${value}"`
+            });
         });
     </script>
 </body>
