@@ -2,7 +2,7 @@
 title: Registrar nuevo estudio de mercado
 description: Llene este formulario para registrar un nuevo estudio de mercado a la plataforma. Recuerde que este estudio será revisado por el comité de calidad de Market Knowledge Center
 published: true
-date: 2024-09-30T18:47:25.922Z
+date: 2024-09-30T18:52:14.240Z
 tags: 
 editor: code
 dateCreated: 2024-09-30T17:09:44.323Z
@@ -21,66 +21,28 @@ dateCreated: 2024-09-30T17:09:44.323Z
 </head>
 <body>
     <h1 class="form-title">Registrar Estudio de Mercado</h1>
-			<form id="market-study-form" enctype="multipart/form-data">
+    <form id="market-study-form" enctype="multipart/form-data">
         <!-- Campo de Título -->
         <label for="title" class="form-label">Título:</label>
         <input type="text" id="title" name="title" class="form-input" required><br><br>
 
-        <!-- Campo de Sinopsis -->
-        <label for="summary" class="form-label">Sinopsis:</label>
-        <textarea id="summary" name="summary" rows="5" class="form-textarea" required></textarea><br><br>
-
-        <!-- Campo de Categoría con creación de nuevas etiquetas -->
-        <label for="category" class="form-label">Categoría:</label>
-        <select id="category" name="category[]" multiple required class="form-select">
-            <option value="economy">Economía</option>
-            <option value="technology">Tecnología</option>
-            <option value="marketing">Marketing</option>
-            <option value="sales">Ventas</option>
-        </select><br><br>
-
-        <!-- Campo de Autor con creación de nuevas etiquetas -->
-        <label for="author" class="form-label">Autor:</label>
-        <select id="author" name="author[]" multiple required class="form-select">
-            <option value="author1">Autor 1</option>
-            <option value="author2">Autor 2</option>
-            <option value="author3">Autor 3</option>
-        </select><br><br>
-
-        <!-- Campo de Mes y Año de Publicación -->
-        <label for="month" class="form-label">Mes y año de Publicación:</label>
-        <select id="month" name="month" required class="form-select">
-            <option value="jan">Enero - 2021</option>
-            <option value="feb">Febrero - 2018</option>
-            <option value="mar">Marzo - 2019</option>
-        </select><br><br>
-
-        <!-- Campo de País con creación de nuevas etiquetas -->
-        <label for="country" class="form-label">País:</label>
-        <select id="country" name="country[]" multiple required class="form-select">
-            <option value="argentina">Argentina</option>
-            <option value="chile">Chile</option>
-            <option value="mexico">México</option>
-            <option value="spain">España</option>
-        </select><br><br>
-
-        <!-- Adjuntar documento -->
-        <label for="document" class="form-label">Adjuntar Documento:</label>
-        <input type="file" id="document" name="document" class="form-file-input"><br><br>
-
-        <!-- Campo de URL -->
-        <label for="url" class="form-label">URL:</label>
-        <input type="url" id="url" name="url" class="form-input"><br><br>
+        <!-- Otros campos del formulario aquí... -->
 
         <!-- Botón para registrar -->
         <button type="submit" class="form-submit-btn">Registrar</button>
     </form>
 
     <!-- Enlace al JavaScript de Choices.js -->
-  <script>
-    document.getElementById('market-study-form').addEventListener('submit', async function(event) {
-      console.log("asdf");
-    });
-</script>
+    <script>
+        // Mover el script al final o asegurarse de que el DOM esté cargado completamente
+        document.addEventListener('DOMContentLoaded', function() {
+            // Asignamos el evento submit al formulario
+            document.getElementById('market-study-form').addEventListener('submit', async function(event) {
+                event.preventDefault(); // Para evitar que se recargue la página
+                console.log("Formulario enviado correctamente.");
+                // Aquí puedes agregar más lógica después de procesar el formulario
+            });
+        });
+    </script>
 </body>
 </html>
