@@ -2,7 +2,7 @@
 title: Registrar nuevo estudio de mercado
 description: Llene este formulario para registrar un nuevo estudio de mercado a la plataforma. Recuerde que este estudio será revisado por el comité de calidad de Market Knowledge Center
 published: true
-date: 2024-09-30T18:56:03.879Z
+date: 2024-09-30T18:59:31.354Z
 tags: 
 editor: code
 dateCreated: 2024-09-30T17:09:44.323Z
@@ -77,9 +77,12 @@ dateCreated: 2024-09-30T17:09:44.323Z
     </form>
 
     <!-- Enlace al JavaScript de Choices.js -->
-  <script>
-    document.getElementById('market-study-form').addEventListener('submit', async function(event) {
-      console.log("asdf");
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('market-study-form').addEventListener('submit', async function(event) {
+            event.preventDefault();  // Prevent the form from submitting and reloading the page
+            console.log("Formulario enviado correctamente.");
+        });
     });
 </script>
 </body>
